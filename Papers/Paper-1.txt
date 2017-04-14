@@ -1,0 +1,8 @@
+Title : Pixelization
+
+Author : Azriel Rosenfeld
+
+
+Abstract : Digital  image  processing  is  the  use  of  computer  algorithms  to  perform  image  processing  on  digital  images.  As a subfield of digital signal processing, digital image processing has many advantages over analog image processing; it allows a much wider range of algorithms to be applied to the input data, and can avoid problems such as the build-up of  noise  and  signal  distortion  during  processing.  Since  images  are  defined  over  two  dimensions  (perhaps  more) digital image processing can be modeled in the form of Multidimensional System. Digital imaging or digital image acquisition is the creation of digital images, typically from a physical scene. The term is often assumed to imply or include the processing, compression, storage, printing, and display of such images. A digital image may be created directly from a physical scene by a camera or similar devices. Alternatively, it may be obtained from another image in an analog medium, such as photographs, photographic film, or printed paper, by an  image  scanner  or  similar  device.  Many  technical  images — such  as  those  acquired  with  tomographic  equipment, side-scan  sonar,  or  radio  telescopes — are  actually  obtained  by  complex  processing  of  non-image  data.  This digitalization  of  analog  real-world  data  is  known  as  digitizing,  and  involves  sampling  (discretization)  and quantization.
+
+Keywords : Image, Processing, Signal, Digital, Quantization, Photographs

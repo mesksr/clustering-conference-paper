@@ -1,0 +1,8 @@
+Title : Digital picture processing 
+
+Author : B. Chandra
+
+
+Abstract : Picture processing by computer encompasses a wide variety of techniques and mathematical. When a picture is digitized, a sample picture is used to extract from the picture a discrete set of real real samples and a quantization process is applied to these samples to yeild numbers having discrete set of possible values.In most practical situation, samples are the value of the picture at a discrete, usually regularlly spaced, set of points, or more realistically, averages of the value taken over small neighbourhoods of such points. Such a set of sample can be represented, for computer processing purpose, as a array of real numbers. The samples are usually quntized to a set of equally spaced gray level values. If the unit of measurement suitably chhosen,these values can be taken to be integer; thus a digital picture can be regarded as an integer array (If there are just two gray levels,"Black" & "White", we usually represent by them 0 and 1, so the pictures becomes Boolean array). Picture digitization and coding : It means conversion of picture from contineous to discrete from (digitization); "compression" of the results so as to conserve storage space or channel capacity.	
+	
+Keywords : Picture, Processing, Digitization, Quantization, Measurement

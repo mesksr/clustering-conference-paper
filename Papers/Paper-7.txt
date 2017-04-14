@@ -1,0 +1,16 @@
+Title : Analysis of Pipe Networks
+
+Author : Hassan Abdel Mageid
+
+
+Abstract : The finite element technique used in the analysis and design of water distribution networks will be presented. The method was applied successfully to the solution of three different networks.
+
+Nodes and pipes are numbered for identification purposes. As a sign convention, any external flow at a joint will be positive when fluid is input and negative when actual consumption occurs.  
+
+ 
+
+In order to demonstrate the feasibility of the approach and to show some merits and demerits of the finite element method, a comparison was made on a digital computer with the standard Hardy Cross method. In all cases the finite element method was shown to provide superior performance. Moreover, the programmes were run on three different machines {Wang vs 100, Apple IIe, and IBM microcomputer} to show the effect of increasing storage capacity, machine accuracy, and time saving 
+
+Research paper.
+
+Keywords : Water, Networks, Element , Design, Feasibility
