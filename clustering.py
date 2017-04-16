@@ -1,4 +1,4 @@
-import os
+import os, math
 
 def get_distance(word_fr1, word_fr2):
     #--- paper is already merged ---#
@@ -36,7 +36,9 @@ for i in range(no_of_papers):
     word_fr_curr = map(int, temp_data[i*3 + 1].split())
     word_fr_curr = word_fr_curr + [0]*(no_of_words - len(word_fr_curr))
 
-    print '>>>', word_fr_curr, ':', title_curr, 'by', author_curr
+    print title_curr, 'by', author_curr
+    print '>>>', word_fr_curr
+    print ''
     
     titles.append(title_curr)
     authors.append(author_curr)
@@ -48,20 +50,21 @@ for i in range(no_of_papers):
     max_fr = max(max_fr, max(word_frs[i]))
 
 #--- Calculating Equalizer ---#
-eq = max_fr/2
+eq = 0#max_fr/2
 
 print "\nmax fr :", max_fr
 print "eq :", eq
 
+#--- Finding max_fr for each word ---#
+max_fr = [0]*no_of_words
+for i in range(no_of_papers):
+    for j in range(no_of_words):
+        max_fr[j] = max(max_fr[j], word_frs[i][j])
+
 #--- Modifying words_frs ---#
 for i in range(no_of_papers):
     for j in range(no_of_words):
-        word_frs[i][j] -= eq
-
-print "\nmodified word_frs :"
-for i in range(no_of_papers):
-    print '>>>', word_fr_curr, ':', titles[i], 'by', authors[i]
-    
+        word_frs[i][j] /= float(max_fr[j])
 
 parent = {}
 for i in range(no_of_papers):
@@ -96,6 +99,12 @@ while (True):
                 curr_closest_pair = (i, j)
                 
     print "\n*************************************"    
+
+    print "\nmodified word_frs :"
+    for i in range(no_of_papers):
+        print titles[i], 'by', authors[i]
+        print '>>>', word_frs[i]
+
     print "\nclosest pair :", curr_closest_pair    
     print "\ndistances :"
     for i in range(no_of_papers_temp):
@@ -104,7 +113,7 @@ while (True):
         print ''
 
     #--- Terminating condition ---#
-    if (curr_closest_dist <= 0):
+    if (curr_closest_dist <= 0.2):
         print "\nno two paper are close enough to cluster"
         break
 
@@ -113,11 +122,11 @@ while (True):
     p2 = curr_closest_pair[1]
     union(p1, p2)
 
-    no_of_papers_temp -= 1
+    #no_of_papers_temp -= 1 #--- commented so that matrix remains okay ---#
 
     #print word_frs, '->', 
     for i in range(no_of_words):
-        word_frs[p1][i] = (word_frs[p1][i] + word_frs[p2][i])/2
+        word_frs[p1][i] = int(math.ceil((word_frs[p1][i] + word_frs[p2][i])/2.0))
     word_frs[p2] = None
     #print word_frs
 

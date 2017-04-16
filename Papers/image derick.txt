@@ -1,0 +1,9 @@
+Title : Image Softening
+
+Author : Derick
+
+Abstract : Image sharpening involves a form of contrast. This is done by finding the average color of the pixels around each pixel in a specified radius, and then contrasting that pixel from that average color. This effect makes the image seem clearer, seemingly adding details. An example of this effect can be seen to the right. It is widely used in the printing and photographic industries for increasing the local contrasts and sharpening the images.Many graphics applications are capable of merging one or more individual images into a single file. The orientation and placement of each image can be controlled.
+
+Keywords : contrasts, merging, signal processing, pixel.
+
+ 

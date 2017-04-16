@@ -1,17 +1,24 @@
 import os
-from nltk.stem.snowball import SnowballStemmer
+can_stem = True
+
+if (can_stem):
+    from nltk.stem.snowball import SnowballStemmer
 
 def sort_utility(x):
     return x[1]
 
 def get_keywords_from_abstract(string, n):
     #--- Returns 'n' most-frequent keywords and their frequencies from the 'string' ---#
-    
+    if (string is None):
+        return [], []
+
     abstract_word_list = string.split()
     
     temp_wf = {}
     for word in abstract_word_list:
-        word = str(stemmer.stem(word))
+        word = word.lower()
+        if (can_stem):
+            word = str(stemmer.stem(word))
         if (word not in stop_words):
             temp_wf[word] = temp_wf.get(word, 0) + 1
 
@@ -29,7 +36,9 @@ def get_keywords_listed(string):
     #--- Returns all the keywords listed in the 'string' and setting frequency = 20---#
     keywords = string.split(',')
     for i in range(len(keywords)):
-        keywords[i] = str(stemmer.stem(keywords[i].strip()))
+        keywords[i] = keywords[i].strip().lower()
+        if (can_stem):
+            keywords[i] = str(stemmer.stem(keywords[i]))
     return keywords
 
 #--- Cleaning old data ---#
@@ -40,14 +49,17 @@ fin = open("words", "w")
 fin.close()
 
 #--- Creating Stemmer ---#
-stemmer = SnowballStemmer('english')
+if (can_stem):
+    stemmer = SnowballStemmer('english')
 
 #--- Getting the list of stop-words ---#
 fsw = open("stopwords", 'r')
 stop_words = fsw.readlines()
 for i in range(len(stop_words)):
     #--- Cleaning stop-words ---#
-    stop_words[i] = str(stemmer.stem(stop_words[i].strip()))
+    stop_words[i] = stop_words[i].strip()
+    if (can_stem):
+        stop_words[i] = str(stemmer.stem(stop_words[i]))
 fsw.close()
 
 #--- Change directory to Papers ---#
@@ -100,7 +112,7 @@ for file_name in file_names:
                 continue
             if (word in keywords_from_abstract and word in keywords_listed):
                 keywords_combined.append(word)
-                frequencies_combined.append(frequencies_from_abstract[keywords_from_abstract.index(word)] + weight_of_keywords)
+                frequencies_combined.append(weight_of_keywords + frequencies_from_abstract[keywords_from_abstract.index(word)])
             elif (word in keywords_from_abstract):
                 keywords_combined.append(word)
                 frequencies_combined.append(frequencies_from_abstract[keywords_from_abstract.index(word)])
@@ -130,7 +142,7 @@ for file_name in file_names:
         fout_words = open('words', 'a') #--- To add new words ---#
         for i in range(len(keywords_listed)):
             if (not visited[i]):
-                fout_words.write(keywords_listed[i].strip()+'\n')
+                fout_words.write(keywords_combined[i].strip()+'\n')
                 frequency_for_curr_file.append(frequencies_combined[i])
         fout_words.close()
 

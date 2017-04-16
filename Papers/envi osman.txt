@@ -1,0 +1,7 @@
+Title : Water Engineering 
+
+Author : Osman Mohammed Nagger
+
+Abstract : Water is life. It is the main constituent of all living organisms and the key factor providing them with the suitable environment. All civilization found and developed around water resources. As a result of the continuous growth in population and increase in water consumption rate, the gap between demand in terms of quantity and quality, and water supply is getting larger. Rainwater harvesting, (RWH) is one of the old techniques practiced by man to obtain his water requirements especially in areas where there is no continuous water supply (Surface or ground). In such areas rainwater is collected and stored during the rainy season and then used when there is no rain in dry season. The growing awareness of the RWH potentials, as a new source of water in Sudan made the technique very popular and wide spreading especially for domestic uses. The country is one of the world largest countries. It mainly concentrates on the optimum investment of one of the rainwater harvesting techniques, namely the Domestic rainwater harvesting (DRWH). The paper shows the need for water harvesting in Sudan and concludes with some guidelines for the optimum investment of rainwater harvesting. 
+
+Keywords : Water, Rainwater, Harvesting, Quality, Quantity

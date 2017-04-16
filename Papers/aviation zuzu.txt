@@ -1,0 +1,7 @@
+Title    :  Multiple Kernel Anomaly Detection Algorithm
+
+Author   : Zuzu
+
+Abstract : That looks for anomalies in time sequences containing both discrete and continuous data. MKAD goes beyond looking for single variable exceedances and instead identifies violations of typical mathematical relationships across multiple variables. MKAD identifies this typicality automatically through its learning process applied to a large dataset.
+
+Keywords : dataset, propulsion, aviation, flight, planes, altitude, powered

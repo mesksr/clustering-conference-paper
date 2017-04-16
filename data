@@ -1,15 +1,24 @@
-title : Pixelization &  author : Azriel Rosenfeld
-22 20 15 3 2 10
+title : Multiple Kernel Anomaly Detection Algorithm &  author : Zuzu
+2 2 2 2 1 10 10
 
-title : Digital picture processing &  author : B. Chandra
-0 13 0 10 10 0 18 6 5 3
+title : Water Engineering &  author : Osman Mohammed Nagger
+0 0 0 0 0 0 0 18 15 13 2 2
 
-title : Neural networks &  author : Kevin Gurney
-0 0 0 0 0 0 0 0 0 0 13 2 2 1 1
+title : Waves &  author : Roundry Nowak
+0 0 0 0 0 0 0 18 5 3 2 2
 
-title : Wavelets &  author : R.D. Nowak
-0 0 6 0 0 0 0 0 0 0 0 0 0 0 0 4 4 3
+title : Digital Picture Processing &  author : B. Chandra
+0 0 0 0 0 0 0 0 0 0 0 0 18 6 5 13 3
 
-title : Water Conservation &  author : Hayder A. Abdel
-0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 12 11 1 1 1
+title : Image Softening &  author : Derick
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 4 3 12 2
+
+title : Image Processing &  author : Kevin Gurney
+0 0 0 0 0 0 0 0 0 0 0 0 8 6 5 13 3 10 0 0 0
+
+title : Vectors &  author : Rachel
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 7 0 13 0 0 0 3 2
+
+title : Heart Rate &  author : Ferego Douches
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 13 2 2 1 1 10
 
