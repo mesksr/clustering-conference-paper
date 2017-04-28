@@ -26,7 +26,6 @@ authors = []
 word_frs = []
 
 #--- Separating Title, Author, Word-Frequency ---#
-print "\noriginal word_frs :"
 for i in range(no_of_papers):
     
     title_curr, author_curr = temp_data[i*3].split('&')
@@ -35,25 +34,23 @@ for i in range(no_of_papers):
 
     word_fr_curr = map(int, temp_data[i*3 + 1].split())
     word_fr_curr = word_fr_curr + [0]*(no_of_words - len(word_fr_curr))
-
-    print title_curr, 'by', author_curr
-    print '>>>', word_fr_curr
-    print ''
     
     titles.append(title_curr)
     authors.append(author_curr)
     word_frs.append(word_fr_curr)
+    
+#--- Printing original data ---#
+print "\noriginal word_frs :"
+for i in range(no_of_papers):
+    print titles[i], 'by', authors[i]
+    for e in word_frs[i]:
+        print ("%.2f" % e), '\t',
+    print ''
 
-#--- Finding Max Fr ---#
+#--- Finding max fr ---#
 max_fr = 0
 for i in range(no_of_papers):
     max_fr = max(max_fr, max(word_frs[i]))
-
-#--- Calculating Equalizer ---#
-eq = 0#max_fr/2
-
-print "\nmax fr :", max_fr
-print "eq :", eq
 
 #--- Finding max_fr for each word ---#
 max_fr = [0]*no_of_words
@@ -61,11 +58,41 @@ for i in range(no_of_papers):
     for j in range(no_of_words):
         max_fr[j] = max(max_fr[j], word_frs[i][j])
 
-#--- Modifying words_frs ---#
+#--- Normalizing words_frs ---#
 for i in range(no_of_papers):
     for j in range(no_of_words):
-        word_frs[i][j] /= float(max_fr[j])
+        word_frs[i][j] = (word_frs[i][j]*10)/float(max_fr[j])
+ 
+#--- Printing modified data ---#
+print "\nmodified word_frs (after normalization):"
+for i in range(no_of_papers):
+    print titles[i], 'by', authors[i]
+    for e in word_frs[i]:
+        print ("%.2f" % e), '\t',
+    print ''
+        
+#--- Finding idf for each word ---#
+#--- idf(t, D) = log (N/n) ---#
+#--- 'N' is no. of papers ---#
+#--- 'n' is no. of papers where word 't' is present ---#
+n = [0]*no_of_words
+for i in range(no_of_papers):
+    for j in range(no_of_words):
+        if (word_frs[i][j] > 0):
+            n[j] += 1
 
+for i in range(no_of_papers):
+    for j in range(no_of_words):
+        word_frs[i][j] = word_frs[i][j] * math.log(no_of_papers/n[j])
+      
+#--- Printing modified data ---#
+print "\nmodified word_frs (after stf x idf):"
+for i in range(no_of_papers):
+    print titles[i], 'by', authors[i]
+    for e in word_frs[i]:
+        print ("%.2f" % e), '\t',
+    print ''
+    
 parent = {}
 for i in range(no_of_papers):
     parent[i] = i
@@ -98,18 +125,16 @@ while (True):
                 curr_closest_dist = matrix[i][j]
                 curr_closest_pair = (i, j)
                 
-    print "\n*************************************"    
-
-    print "\nmodified word_frs :"
-    for i in range(no_of_papers):
-        print titles[i], 'by', authors[i]
-        print '>>>', word_frs[i]
+    print "\n*************************************"   
 
     print "\nclosest pair :", curr_closest_pair    
     print "\ndistances :"
     for i in range(no_of_papers_temp):
         for j in range(no_of_papers_temp):
-            print matrix[i][j], '\t', 
+            if (type(matrix[i][j]) is  str):
+                print matrix[i][j], '\t',
+            else:
+                print ("%.2f" % matrix[i][j]), '\t', 
         print ''
 
     #--- Terminating condition ---#

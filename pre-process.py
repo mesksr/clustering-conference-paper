@@ -71,23 +71,27 @@ file_names = os.listdir(os.getcwd())
 no_of_words_to_extract_from_abstract = 5
 
 for file_name in file_names:
-    title = None
-    author = None 
-    abstract = None
-    keywords = None
+    title = ''
+    author = '' 
+    abstract = ''
+    keywords = ''
     if (file_name.endswith('.txt')):
         fin = open(file_name, 'r')
         for line in fin:
             #--- Trim blank lines ---#
-            if (len(line) > 1):
+            if (len(line) > 2):
                 if (line.startswith('Title')):
                     title = line.split(':')[1].strip()
                 elif (line.startswith('Author')):
                     author = line.split(':')[1].strip()
-                elif (line.startswith('Abstract')):
-                    abstract = line.split(':')[1].strip()
                 elif (line.startswith('Keywords')):
                     keywords = line.split(':')[1].strip()
+                else:
+                    if (line.startswith('Abstract')):
+                        abstract += line.split(':')[1].strip()
+                    else:
+                        abstract += line.strip()
+                        
         fin.close()
         
         #--- Get additional keywords ---#
